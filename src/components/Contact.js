@@ -1,7 +1,6 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { motion, useInView } from 'framer-motion';
-import { FaPhone, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
 
 const StyledContactSection = styled(motion.section)`
   min-height: 100vh;
@@ -28,52 +27,6 @@ const Title = styled(motion.h2)`
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
-  }
-`;
-
-const ContactInfoContainer = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  padding: 2rem;
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow: 0 8px 32px rgba(120, 53, 15, 0.18);
-  max-width: 600px;
-  margin: 0 auto 2rem auto;
-`;
-
-const ContactInfoTitle = styled.h3`
-  color: #b45309;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-`;
-
-const ContactInfoList = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-`;
-
-const ContactInfoItem = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: #475569;
-  font-size: 1.1rem;
-  padding: 1rem;
-  border-radius: 8px;
-  background: #f8fafc;
-  transition: all 0.3s ease;
-
-  svg {
-    font-size: 1.5rem;
-    color: #b45309;
-  }
-
-  &:hover {
-    transform: translateX(5px);
-    background: rgba(217, 119, 6, 0.1);
   }
 `;
 
@@ -178,56 +131,6 @@ const SubmitButton = styled.button`
   }
 `;
 
-const SocialContainer = styled(motion.div)`
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(12px);
-  padding: 2rem;
-  border-radius: 15px;
-  border: 1px solid rgba(255, 255, 255, 0.55);
-  box-shadow: 0 8px 32px rgba(120, 53, 15, 0.18);
-  max-width: 600px;
-  margin: 0 auto;
-`;
-
-const SocialTitle = styled.h3`
-  color: #b45309;
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
-  text-align: center;
-`;
-
-const SocialLinks = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.5rem;
-  
-  @media (max-width: 480px) {
-    grid-template-columns: 1fr;
-  }
-`;
-
-const SocialLink = styled.a`
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  color: #475569;
-  font-size: 1.1rem;
-  padding: 1rem;
-  border-radius: 8px;
-  transition: all 0.3s ease;
-  background: #f8fafc;
-
-  svg {
-    font-size: 1.8rem;
-  }
-
-  &:hover {
-    color: #b45309;
-    transform: translateY(-3px);
-    background: rgba(217, 119, 6, 0.1);
-  }
-`;
-
 const Contact = React.memo(() => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: false });
@@ -264,26 +167,6 @@ const Contact = React.memo(() => {
         >
           İletişim
         </Title>
-        <ContactInfoContainer
-          {...animationProps}
-          transition={{ duration: 0.5, delay: 0.2 }}
-        >
-          <ContactInfoTitle>İletişim Bilgilerim</ContactInfoTitle>
-          <ContactInfoList>
-            <ContactInfoItem>
-              <FaEnvelope />
-              <span>kocagozoguzalp@gmail.com</span>
-            </ContactInfoItem>
-            <ContactInfoItem>
-              <FaPhone />
-              <span>+90 505 368 90 84</span>
-            </ContactInfoItem>
-            <ContactInfoItem>
-              <FaMapMarkerAlt />
-              <span>Balıkesir, Türkiye</span>
-            </ContactInfoItem>
-          </ContactInfoList>
-        </ContactInfoContainer>
         <FormContainer
           {...animationProps}
           transition={{ duration: 0.5, delay: 0.3 }}
@@ -328,14 +211,6 @@ const Contact = React.memo(() => {
             <SubmitButton type="submit">Gönder</SubmitButton>
           </Form>
         </FormContainer>
-        <SocialContainer
-          {...animationProps}
-          transition={{ duration: 0.5, delay: 0.4 }}
-        >
-          <SocialTitle>Sosyal Medya Hesaplarım</SocialTitle>
-          <SocialLinks>
-          </SocialLinks>
-        </SocialContainer>
       </ContactContainer>
     </StyledContactSection>
   );

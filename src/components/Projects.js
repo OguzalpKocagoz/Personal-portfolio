@@ -204,31 +204,22 @@ const CATEGORY_ICON = {
 // image: public klasörüne koyduğun kapak görselinin yolu (ör. '/covers/proje.jpg'). Yoksa null bırak.
 const projectsData = [
   {
-    title: 'Number Detector',
-    category: 'Ürün',
-    description: 'PHP kullanılarak geliştirilmiş sayı tanıma uygulaması.',
-    tech: ['PHP'],
-    image: null,
-    github: 'https://github.com/OguzalpKocagoz/Number-Detector',
-    live: null
+    title: 'CV Sitesi',
+    category: 'Web',
+    description: 'React, Styled Components ve Framer Motion ile geliştirilmiş kişisel portfolyo sitesi. Amber temalı, animasyonlu ve responsive tasarım.',
+    tech: ['React', 'Styled Components', 'Framer Motion'],
+    image: process.env.PUBLIC_URL + '/covers/cv.png',
+    github: 'https://github.com/OguzalpKocagoz/Personal-portfolio',
+    live: 'https://reactportfolyo.vercel.app/'
   },
   {
-    title: 'Checkerboard',
-    category: 'Oyun',
-    description: 'C# ile geliştirilmiş dama tahtası uygulaması.',
-    tech: ['C#', '.NET'],
-    image: null,
-    github: 'https://github.com/OguzalpKocagoz/Checkerboard',
-    live: null
-  },
-  {
-    title: 'Russian Roulette',
-    category: 'Oyun',
-    description: 'C# ile geliştirilmiş Rus ruleti oyunu simülasyonu.',
-    tech: ['C#', '.NET'],
-    image: null,
-    github: 'https://github.com/OguzalpKocagoz/Russian-Roulette',
-    live: null
+    title: 'Randevu Sistemi',
+    category: 'Web',
+    description: 'Node.js ve MongoDB ile geliştirilmiş, sektörden bağımsız randevu yönetim uygulaması. Randevu oluşturma, iptal ve yönetici paneli özellikleri; JWT kimlik doğrulama ve PWA desteği.',
+    tech: ['Node.js', 'MongoDB', 'JavaScript', 'PWA'],
+    image: process.env.PUBLIC_URL + '/covers/randevu.png',
+    github: 'https://github.com/OguzalpKocagoz/randevu-app',
+    live: 'https://randevu-app-nine.vercel.app/index.html'
   }
 ];
 
