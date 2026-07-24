@@ -1,7 +1,7 @@
 import React, { useState, useRef } from 'react';
 import styled from 'styled-components';
 import { motion, useInView } from 'framer-motion';
-import { FaGithub, FaLinkedin, FaTwitter, FaInstagram, FaPhone, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
+import { FaPhone, FaMapMarkerAlt, FaEnvelope } from 'react-icons/fa';
 
 const StyledContactSection = styled(motion.section)`
   min-height: 100vh;
@@ -9,40 +9,9 @@ const StyledContactSection = styled(motion.section)`
   align-items: center;
   justify-content: center;
   padding: 100px 20px;
-  background: linear-gradient(90deg, 
-    #0a192f 0%,
-    #0c1b34 20%,
-    #0e1d3a 40%,
-    #112240 60%,
-    #141f45 80%,
-    #1a1f4d 100%
-  );
+  background: transparent;
   position: relative;
   overflow: hidden;
-
-  &::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    height: 200px;
-    background: linear-gradient(180deg, rgba(10, 25, 47, 0.95) 0%, transparent 100%);
-    pointer-events: none;
-    z-index: 1;
-  }
-
-  &::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 200px;
-    background: linear-gradient(0deg, rgba(26, 31, 77, 0.95) 0%, transparent 100%);
-    pointer-events: none;
-    z-index: 1;
-  }
 `;
 
 const ContactContainer = styled.div`
@@ -52,11 +21,10 @@ const ContactContainer = styled.div`
 
 const Title = styled(motion.h2)`
   font-size: 3rem;
-  color: #64ffda;
+  color: #78350f;
   margin-bottom: 2rem;
   text-align: center;
   font-weight: 700;
-  text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -64,17 +32,18 @@ const Title = styled(motion.h2)`
 `;
 
 const ContactInfoContainer = styled(motion.div)`
-  background: rgba(17, 34, 64, 0.8);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 32px rgba(120, 53, 15, 0.18);
   max-width: 600px;
   margin: 0 auto 2rem auto;
 `;
 
 const ContactInfoTitle = styled.h3`
-  color: #64ffda;
+  color: #b45309;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -90,37 +59,38 @@ const ContactInfoItem = styled.div`
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: #8892b0;
+  color: #475569;
   font-size: 1.1rem;
   padding: 1rem;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.05);
+  background: #f8fafc;
   transition: all 0.3s ease;
 
   svg {
     font-size: 1.5rem;
-    color: #64ffda;
+    color: #b45309;
   }
 
   &:hover {
     transform: translateX(5px);
-    background: rgba(100, 255, 218, 0.1);
+    background: rgba(217, 119, 6, 0.1);
   }
 `;
 
 const FormContainer = styled(motion.div)`
-  background: rgba(17, 34, 64, 0.8);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 32px rgba(120, 53, 15, 0.18);
   margin-bottom: 3rem;
   max-width: 600px;
   margin: 0 auto 3rem auto;
 `;
 
 const FormTitle = styled.h3`
-  color: #64ffda;
+  color: #b45309;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -139,7 +109,7 @@ const InputGroup = styled.div`
 `;
 
 const Label = styled.label`
-  color: #64ffda;
+  color: #b45309;
   font-size: 1rem;
   font-weight: 500;
 `;
@@ -147,31 +117,31 @@ const Label = styled.label`
 const Input = styled.input`
   width: 100%;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(100, 255, 218, 0.3);
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
-  color: #ccd6f6;
+  color: #0f172a;
   font-size: 1rem;
   transition: all 0.3s ease;
 
   &:focus {
     outline: none;
-    border-color: #64ffda;
-    box-shadow: 0 0 10px rgba(100, 255, 218, 0.2);
+    border-color: #d97706;
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
   }
 
   &::placeholder {
-    color: #8892b0;
+    color: #94a3b8;
   }
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
   padding: 1rem;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(100, 255, 218, 0.3);
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
   border-radius: 8px;
-  color: #ccd6f6;
+  color: #0f172a;
   font-size: 1rem;
   min-height: 150px;
   resize: vertical;
@@ -179,21 +149,21 @@ const TextArea = styled.textarea`
 
   &:focus {
     outline: none;
-    border-color: #64ffda;
-    box-shadow: 0 0 10px rgba(100, 255, 218, 0.2);
+    border-color: #d97706;
+    box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.15);
   }
 
   &::placeholder {
-    color: #8892b0;
+    color: #94a3b8;
   }
 `;
 
 const SubmitButton = styled.button`
   padding: 1rem 2rem;
-  background: transparent;
-  border: 2px solid #64ffda;
+  background: #d97706;
+  border: 2px solid #d97706;
   border-radius: 8px;
-  color: #64ffda;
+  color: #ffffff;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
@@ -202,23 +172,25 @@ const SubmitButton = styled.button`
   margin: 0 auto;
 
   &:hover {
-    background: rgba(100, 255, 218, 0.1);
+    background: #b45309;
+    border-color: #b45309;
     transform: translateY(-2px);
   }
 `;
 
 const SocialContainer = styled(motion.div)`
-  background: rgba(17, 34, 64, 0.8);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
   padding: 2rem;
   border-radius: 15px;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  box-shadow: 0 8px 32px rgba(120, 53, 15, 0.18);
   max-width: 600px;
   margin: 0 auto;
 `;
 
 const SocialTitle = styled.h3`
-  color: #64ffda;
+  color: #b45309;
   font-size: 1.5rem;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -238,21 +210,21 @@ const SocialLink = styled.a`
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: #8892b0;
+  color: #475569;
   font-size: 1.1rem;
   padding: 1rem;
   border-radius: 8px;
   transition: all 0.3s ease;
-  background: rgba(255, 255, 255, 0.05);
-  
+  background: #f8fafc;
+
   svg {
     font-size: 1.8rem;
   }
 
   &:hover {
-    color: #64ffda;
+    color: #b45309;
     transform: translateY(-3px);
-    background: rgba(100, 255, 218, 0.1);
+    background: rgba(217, 119, 6, 0.1);
   }
 `;
 
@@ -362,22 +334,6 @@ const Contact = React.memo(() => {
         >
           <SocialTitle>Sosyal Medya Hesaplarım</SocialTitle>
           <SocialLinks>
-            <SocialLink href="https://github.com/OguzalpKocagoz" target="_blank" rel="noopener noreferrer">
-              <FaGithub />
-              <span>GitHub</span>
-            </SocialLink>
-            <SocialLink href="https://linkedin.com/in/oğuzalp-kocagöz-0260b3339" target="_blank" rel="noopener noreferrer">
-              <FaLinkedin />
-              <span>LinkedIn</span>
-            </SocialLink>
-            <SocialLink href="https://twitter.com/KocagozOgu61525" target="_blank" rel="noopener noreferrer">
-              <FaTwitter />
-              <span>Twitter</span>
-            </SocialLink>
-            <SocialLink href="https://instagram.com/oguzalp_kocagoz" target="_blank" rel="noopener noreferrer">
-              <FaInstagram />
-              <span>Instagram</span>
-            </SocialLink>
           </SocialLinks>
         </SocialContainer>
       </ContactContainer>

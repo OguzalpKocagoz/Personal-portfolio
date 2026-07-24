@@ -13,8 +13,8 @@ const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #0a192f;
-    color: #fff;
+    background: #f1f5f9;
+    color: #0f172a;
     overflow-x: hidden;
   }
 
@@ -23,17 +23,17 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ::-webkit-scrollbar-track {
-    background: #0a192f;
+    background: #e2e8f0;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #64ffda;
+    background: #d97706;
     border-radius: 10px;
   }
 
   ::selection {
-    background: #64ffda;
-    color: #0a192f;
+    background: #d97706;
+    color: #fff;
   }
 `;
 

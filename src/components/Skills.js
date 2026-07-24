@@ -15,14 +15,14 @@ import {
 const SkillsSection = styled.section`
   min-height: 100vh;
   padding: 100px 20px;
-  background: linear-gradient(180deg, 
-    #0a192f 0%,
-    #0b1832 15%,
-    #0e1c3a 30%,
-    #112240 50%,
-    #142339 70%,
-    #172044 85%,
-    #1a1f4d 100%
+  background: linear-gradient(180deg,
+    #f1f5f9 0%,
+    #eef4f4 15%,
+    #eaf2f3 30%,
+    #e9f1f2 50%,
+    #eaf1f4 70%,
+    #ecf0f6 85%,
+    #edf1f8 100%
   );
   position: relative;
   overflow: hidden;
@@ -37,7 +37,7 @@ const SkillsSection = styled.section`
     left: 0;
     right: 0;
     height: 200px;
-    background: linear-gradient(180deg, rgba(10, 25, 47, 0.95) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(241, 245, 249, 0.95) 0%, transparent 100%);
     pointer-events: none;
     z-index: 1;
   }
@@ -49,7 +49,7 @@ const SkillsSection = styled.section`
     left: 0;
     right: 0;
     height: 200px;
-    background: linear-gradient(0deg, rgba(26, 31, 77, 0.95) 0%, transparent 100%);
+    background: linear-gradient(0deg, rgba(237, 241, 248, 0.95) 0%, transparent 100%);
     pointer-events: none;
     z-index: 1;
   }
@@ -65,7 +65,7 @@ const SkillsContainer = styled.div`
 
 const Title = styled(motion.h2)`
   font-size: 2.5rem;
-  color: #64ffda;
+  color: #0f172a;
   margin-bottom: 3rem;
   text-align: center;
   font-weight: 700;
@@ -91,19 +91,21 @@ const SkillsGrid = styled.div`
 
 const SkillCard = styled(motion.div)`
   width: 100%;
-  background: rgba(255, 255, 255, 0.05);
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
   border-radius: 15px;
   padding: 2rem;
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(100, 255, 218, 0.1);
+    box-shadow: 0 20px 40px rgba(15, 23, 42, 0.12);
   }
 `;
 
 const CardTitle = styled.h3`
-  color: #64ffda;
+  color: #0d9488;
   font-size: 1.8rem;
   margin-bottom: 1.5rem;
   text-align: center;
@@ -126,18 +128,18 @@ const SubSkill = styled.div`
 
 const SkillIcon = styled.div`
   font-size: 2.5rem;
-  color: #64ffda;
+  color: #14b8a6;
   margin-bottom: 0.5rem;
 `;
 
 const SkillName = styled.p`
-  color: #8892b0;
+  color: #475569;
   font-size: 1rem;
   text-align: center;
 `;
 
 const SubTitle = styled.h4`
-  color: #ccd6f6;
+  color: #0f172a;
   font-size: 1.2rem;
   margin: 1rem 0;
   text-align: center;

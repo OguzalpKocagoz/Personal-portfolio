@@ -8,14 +8,14 @@ import { FaGraduationCap, FaUniversity, FaUsers } from 'react-icons/fa';
 const EducationSection = styled.section`
   min-height: 100vh;
   padding: 100px 20px;
-  background: linear-gradient(180deg, 
-    #1a1f4d 0%,
-    #172044 15%,
-    #142339 30%,
-    #112240 50%,
-    #0e1c3a 70%,
-    #0b1832 85%,
-    #0a192f 100%
+  background: linear-gradient(180deg,
+    #edf1f8 0%,
+    #ecf0f6 15%,
+    #eaf1f4 30%,
+    #e9f1f2 50%,
+    #eaf2f3 70%,
+    #eef4f4 85%,
+    #f1f5f9 100%
   );
   position: relative;
   overflow: hidden;
@@ -30,7 +30,7 @@ const EducationSection = styled.section`
     left: 0;
     right: 0;
     height: 200px;
-    background: linear-gradient(180deg, rgba(26, 31, 77, 0.95) 0%, transparent 100%);
+    background: linear-gradient(180deg, rgba(237, 241, 248, 0.95) 0%, transparent 100%);
     pointer-events: none;
     z-index: 1;
   }
@@ -42,7 +42,7 @@ const EducationSection = styled.section`
     left: 0;
     right: 0;
     height: 200px;
-    background: linear-gradient(0deg, rgba(10, 25, 47, 0.95) 0%, transparent 100%);
+    background: linear-gradient(0deg, rgba(241, 245, 249, 0.95) 0%, transparent 100%);
     pointer-events: none;
     z-index: 1;
   }
@@ -58,11 +58,10 @@ const Container = styled.div`
 
 const Title = styled(motion.h2)`
   font-size: 3rem;
-  color: #64ffda;
+  color: #0f172a;
   margin-bottom: 4rem;
   text-align: center;
   font-weight: 700;
-  text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -78,13 +77,13 @@ const Timeline = styled.div`
     content: '';
     position: absolute;
     width: 6px;
-    background: #64ffda;
+    background: #14b8a6;
     top: 0;
     bottom: 0;
     left: 50%;
     margin-left: -3px;
     border-radius: 3px;
-    box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+    box-shadow: 0 0 10px rgba(20, 184, 166, 0.25);
   }
 
   @media (max-width: 768px) {
@@ -110,16 +109,15 @@ const TimelineItem = styled(motion.div)`
 
 const TimelineContent = styled.div`
   padding: 20px;
-  background: rgba(17, 34, 64, 0.8);
+  background: #ffffff;
   border-radius: 15px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(100, 255, 218, 0.1);
+  box-shadow: 0 8px 32px rgba(15, 23, 42, 0.08);
+  border: 1px solid #e2e8f0;
   transition: all 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 40px rgba(100, 255, 218, 0.1);
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.12);
   }
 `;
 
@@ -129,15 +127,15 @@ const TimelineIcon = styled.div`
   height: 40px;
   right: ${props => props.position === 'left' ? '-60px' : 'auto'};
   left: ${props => props.position === 'right' ? '-60px' : 'auto'};
-  background: #112240;
-  border: 4px solid #64ffda;
+  background: #14b8a6;
+  border: 4px solid #ffffff;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #64ffda;
+  color: #ffffff;
   z-index: 1;
-  box-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
+  box-shadow: 0 2px 10px rgba(20, 184, 166, 0.35);
 
   @media (max-width: 768px) {
     left: 10px;
@@ -145,19 +143,19 @@ const TimelineIcon = styled.div`
 `;
 
 const TimelineTitle = styled.h3`
-  color: #64ffda;
+  color: #0d9488;
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
 `;
 
 const TimelineDate = styled.p`
-  color: #8892b0;
+  color: #475569;
   font-size: 1rem;
   margin-bottom: 1rem;
 `;
 
 const TimelineDescription = styled.p`
-  color: #ccd6f6;
+  color: #334155;
   font-size: 1.1rem;
   line-height: 1.6;
 `;

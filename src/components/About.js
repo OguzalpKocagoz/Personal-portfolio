@@ -12,11 +12,11 @@ const AboutSection = styled.section`
   padding: 100px 20px;
   background: linear-gradient(
     225deg,
-    #0a192f 0%,
-    #0d1c37 25%,
-    #112240 50%,
-    #162a54 75%,
-    #1a1f4d 100%
+    #f1f5f9 0%,
+    #eef4f5 25%,
+    #eaf2f4 50%,
+    #edf1f7 75%,
+    #edf1f8 100%
   );
   position: relative;
   overflow: hidden;
@@ -28,17 +28,17 @@ const AboutSection = styled.section`
     left: 0;
     width: 100%;
     height: 100%;
-    background: 
+    background:
       radial-gradient(
         circle at 20% 20%,
-        rgba(100, 255, 218, 0.03) 0%,
-        rgba(100, 255, 218, 0.01) 25%,
+        rgba(20, 184, 166, 0.06) 0%,
+        rgba(20, 184, 166, 0.02) 25%,
         transparent 50%
       ),
       radial-gradient(
         circle at 80% 80%,
-        rgba(100, 255, 218, 0.03) 0%,
-        rgba(100, 255, 218, 0.01) 25%,
+        rgba(20, 184, 166, 0.06) 0%,
+        rgba(20, 184, 166, 0.02) 25%,
         transparent 50%
       );
     pointer-events: none;
@@ -52,13 +52,13 @@ const AboutSection = styled.section`
     width: 100%;
     height: 100%;
     background: 
-      linear-gradient(225deg, 
-        rgba(100, 255, 218, 0.05) 0%,
+      linear-gradient(225deg,
+        rgba(20, 184, 166, 0.05) 0%,
         transparent 45%
       ),
-      linear-gradient(45deg, 
+      linear-gradient(45deg,
         transparent 55%,
-        rgba(100, 255, 218, 0.05) 100%
+        rgba(20, 184, 166, 0.05) 100%
       );
     pointer-events: none;
   }
@@ -72,7 +72,7 @@ const AboutSection = styled.section`
     background: linear-gradient(
       to top,
       transparent,
-      #0a192f
+      #f1f5f9
     );
     pointer-events: none;
     z-index: 1;
@@ -87,7 +87,7 @@ const AboutSection = styled.section`
     background: linear-gradient(
       to bottom,
       transparent,
-      #1a1f4d
+      #edf1f8
     );
     pointer-events: none;
     z-index: 1;
@@ -103,11 +103,10 @@ const AboutContainer = styled.div`
 
 const Title = styled(motion.h2)`
   font-size: 3rem;
-  color: #64ffda;
+  color: #0f172a;
   margin-bottom: 2rem;
   text-align: center;
   font-weight: 700;
-  text-shadow: 0 0 10px rgba(100, 255, 218, 0.3);
 
   @media (max-width: 768px) {
     font-size: 2.5rem;
@@ -126,7 +125,7 @@ const Content = styled.div`
 `;
 
 const TextContent = styled(motion.div)`
-  color: #8892b0;
+  color: #475569;
   font-size: 1.25rem;
   line-height: 1.8;
   font-weight: 500;
@@ -136,12 +135,12 @@ const TextContent = styled(motion.div)`
     transition: color 0.3s ease;
 
     &:hover {
-      color: #ccd6f6;
+      color: #0f172a;
     }
   }
 
   strong {
-    color: #64ffda;
+    color: #0d9488;
     font-weight: 600;
   }
 
@@ -159,14 +158,14 @@ const ImageContainer = styled(motion.div)`
     width: 100%;
     height: auto;
     border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(15, 23, 42, 0.12);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     object-fit: cover;
     aspect-ratio: 1;
 
     &:hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 40px rgba(100, 255, 218, 0.2);
+      box-shadow: 0 15px 40px rgba(20, 184, 166, 0.25);
     }
   }
 `;

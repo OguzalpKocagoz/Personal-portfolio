@@ -12,10 +12,9 @@ const Nav = styled(motion.nav)`
   justify-content: space-between;
   align-items: center;
   padding: 0 5%;
-  background: rgba(15, 35, 75, 0.95);
-  backdrop-filter: blur(10px);
+  background: transparent;
+  backdrop-filter: blur(6px);
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 
   @media (max-width: 480px) {
     padding: 0 15px;
@@ -23,25 +22,10 @@ const Nav = styled(motion.nav)`
   }
 `;
 
-const Logo = styled.a`
-  color: #64ffda;
-  font-size: 1.5rem;
-  font-weight: bold;
-  text-decoration: none;
-  transition: color 0.3s ease;
-
-  &:hover {
-    color: #4fa;
-  }
-
-  @media (max-width: 480px) {
-    font-size: 1.25rem;
-  }
-`;
-
 const NavLinks = styled.div`
   display: flex;
   gap: 2.5rem;
+  margin-left: auto;
 
   @media (max-width: 768px) {
     display: none;
@@ -49,7 +33,7 @@ const NavLinks = styled.div`
 `;
 
 const NavLink = styled.a`
-  color: #ccd6f6;
+  color: #475569;
   text-decoration: none;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -62,12 +46,12 @@ const NavLink = styled.a`
     height: 2px;
     bottom: -4px;
     left: 0;
-    background-color: #64ffda;
+    background-color: #d97706;
     transition: width 0.3s ease;
   }
 
   &:hover {
-    color: #64ffda;
+    color: #b45309;
     &:after {
       width: 100%;
     }
@@ -80,9 +64,10 @@ const NavLink = styled.a`
 
 const MobileMenuButton = styled.button`
   display: none;
+  margin-left: auto;
   background: none;
   border: none;
-  color: #64ffda;
+  color: #b45309;
   font-size: 1.5rem;
   cursor: pointer;
   padding: 8px;
@@ -109,10 +94,11 @@ const MobileMenu = styled(motion.div)`
   top: 70px;
   left: 0;
   right: 0;
-  background: rgba(15, 35, 75, 0.98);
+  background: rgba(255, 251, 235, 0.95);
   padding: 1rem;
   backdrop-filter: blur(10px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(120, 53, 15, 0.15);
+  border-bottom: 1px solid rgba(180, 83, 9, 0.12);
   visibility: ${({ isOpen }) => (isOpen ? 'visible' : 'hidden')};
   z-index: 999;
 
@@ -130,7 +116,7 @@ const MobileNavLink = styled(NavLink)`
   display: block;
   padding: 1rem;
   text-align: center;
-  border-bottom: 1px solid rgba(100, 255, 218, 0.1);
+  border-bottom: 1px solid rgba(15, 23, 42, 0.06);
   font-size: 1.1rem;
 
   &:last-child {
@@ -142,7 +128,7 @@ const MobileNavLink = styled(NavLink)`
   }
 
   &:hover {
-    background: rgba(100, 255, 218, 0.1);
+    background: rgba(217, 119, 6, 0.1);
   }
 
   @media (max-width: 480px) {
@@ -186,16 +172,12 @@ const Navbar = () => {
         animate={{ y: 0 }}
         transition={{ duration: 0.5 }}
         style={{
-          boxShadow: scrolled ? '0 2px 10px rgba(0, 0, 0, 0.1)' : 'none',
+          boxShadow: 'none',
         }}
       >
-        <Logo href="#home">OK</Logo>
         <NavLinks>
           <NavLink href="#home">Ana Sayfa</NavLink>
-          <NavLink href="#about">Hakkımda</NavLink>
-          <NavLink href="#education">Eğitim</NavLink>
-          <NavLink href="#skills">Yetenekler</NavLink>
-          <NavLink href="#projects">Projeler</NavLink>
+          <NavLink href="#works">İşlerim</NavLink>
           <NavLink href="#contact">İletişim</NavLink>
         </NavLinks>
         <MobileMenuButton 
@@ -222,17 +204,8 @@ const Navbar = () => {
         <MobileNavLink href="#home" onClick={() => setIsOpen(false)}>
           Ana Sayfa
         </MobileNavLink>
-        <MobileNavLink href="#about" onClick={() => setIsOpen(false)}>
-          Hakkımda
-        </MobileNavLink>
-        <MobileNavLink href="#education" onClick={() => setIsOpen(false)}>
-          Eğitim
-        </MobileNavLink>
-        <MobileNavLink href="#skills" onClick={() => setIsOpen(false)}>
-          Yetenekler
-        </MobileNavLink>
-        <MobileNavLink href="#projects" onClick={() => setIsOpen(false)}>
-          Projeler
+        <MobileNavLink href="#works" onClick={() => setIsOpen(false)}>
+          İşlerim
         </MobileNavLink>
         <MobileNavLink href="#contact" onClick={() => setIsOpen(false)}>
           İletişim
