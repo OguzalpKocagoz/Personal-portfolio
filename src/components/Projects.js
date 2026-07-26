@@ -1,7 +1,7 @@
 import React, { useRef, useState, useMemo } from 'react';
 import styled from 'styled-components';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
-import { FaGithub, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaGithub, FaExternalLinkAlt, FaDownload } from 'react-icons/fa';
 
 const ProjectsSection = styled.section`
   min-height: 100vh;
@@ -228,7 +228,8 @@ const projectsData = [
     tech: ['Python'],
     image: process.env.PUBLIC_URL + '/covers/banka.png',
     github: 'https://github.com/OguzalpKocagoz/bank-application',
-    live: null
+    live: null,
+    download: process.env.PUBLIC_URL + '/downloads/banka.exe'
   }
 ];
 
@@ -336,6 +337,11 @@ const Projects = () => {
                     {project.github && (
                       <ProjectLink href={project.github} target="_blank" rel="noopener noreferrer">
                         <FaGithub /> Kaynak Kod
+                      </ProjectLink>
+                    )}
+                    {project.download && (
+                      <ProjectLink href={project.download} target="_blank" rel="noopener noreferrer" download>
+                        <FaDownload /> İndir (.exe)
                       </ProjectLink>
                     )}
                   </ProjectLinks>
