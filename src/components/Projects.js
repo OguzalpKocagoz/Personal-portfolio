@@ -220,6 +220,15 @@ const projectsData = [
     image: process.env.PUBLIC_URL + '/covers/randevu.png',
     github: 'https://github.com/OguzalpKocagoz/randevu-app',
     live: 'https://randevu-app-nine.vercel.app/index.html'
+  },
+  {
+    title: 'Banka Uygulaması',
+    category: 'Ürün',
+    description: 'Python ile geliştirilmiş banka uygulaması. Hesap işlemleri ve temel bankacılık fonksiyonlarını içerir.',
+    tech: ['Python'],
+    image: process.env.PUBLIC_URL + '/covers/banka.png',
+    github: 'https://github.com/OguzalpKocagoz/bank-application',
+    live: null
   }
 ];
 
