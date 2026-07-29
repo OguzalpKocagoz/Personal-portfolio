@@ -12,6 +12,10 @@ const ProjectsSection = styled.section`
   background: transparent;
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 480px) {
+    padding: 80px 16px;
+  }
 `;
 
 const ProjectsContainer = styled.div`
@@ -69,8 +73,12 @@ const FilterButton = styled.button`
 
 const ProjectsGrid = styled(motion.div)`
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
   gap: 2rem;
+
+  @media (max-width: 480px) {
+    gap: 1.25rem;
+  }
 `;
 
 const ProjectCard = styled(motion.div)`
@@ -94,6 +102,21 @@ const CoverWrapper = styled.div`
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 9;
+  overflow: hidden;
+`;
+
+const Track = styled.div`
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform;
+`;
+
+const Slide = styled.div`
+  flex: 0 0 100%;
+  width: 100%;
+  height: 100%;
   overflow: hidden;
 `;
 
@@ -259,6 +282,11 @@ const projectsData = [
     description: 'React, Styled Components ve Framer Motion ile geliştirilmiş kişisel portfolyo sitesi. Amber temalı, animasyonlu ve responsive tasarım.',
     tech: ['React', 'Styled Components', 'Framer Motion'],
     image: process.env.PUBLIC_URL + '/covers/cv.png',
+    gallery: [
+      process.env.PUBLIC_URL + '/covers/cv.png',
+      process.env.PUBLIC_URL + '/covers/cv-2.png',
+      process.env.PUBLIC_URL + '/covers/cv-3.png'
+    ],
     github: 'https://github.com/OguzalpKocagoz/Personal-portfolio',
     live: 'https://reactportfolyo.vercel.app/'
   },
@@ -316,12 +344,17 @@ const ProjectCover = ({ project }) => {
   return (
     <CoverWrapper>
       {images.length > 0 ? (
-        <CoverImage
-          key={idx}
-          src={images[idx]}
-          alt={`${project.title} görsel ${idx + 1}`}
-          loading="lazy"
-        />
+        <Track style={{ transform: `translateX(-${idx * 100}%)` }}>
+          {images.map((img, i) => (
+            <Slide key={i}>
+              <CoverImage
+                src={img}
+                alt={`${project.title} görsel ${i + 1}`}
+                loading="lazy"
+              />
+            </Slide>
+          ))}
+        </Track>
       ) : (
         <CoverPlaceholder>{CATEGORY_ICON[project.category] || '💻'}</CoverPlaceholder>
       )}

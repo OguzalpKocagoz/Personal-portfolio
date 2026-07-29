@@ -11,6 +11,10 @@ const StyledContactSection = styled(motion.section)`
   background: transparent;
   position: relative;
   overflow: hidden;
+
+  @media (max-width: 480px) {
+    padding: 80px 16px;
+  }
 `;
 
 const ContactContainer = styled.div`
@@ -40,6 +44,10 @@ const FormContainer = styled(motion.div)`
   margin-bottom: 3rem;
   max-width: 600px;
   margin: 0 auto 3rem auto;
+
+  @media (max-width: 480px) {
+    padding: 1.5rem;
+  }
 `;
 
 const FormTitle = styled.h3`

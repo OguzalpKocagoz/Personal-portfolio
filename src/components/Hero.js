@@ -14,6 +14,10 @@ const HeroSection = styled.section`
   position: relative;
   overflow: hidden;
 
+  @media (max-width: 480px) {
+    padding: 90px 16px;
+  }
+
   .bottom-fade {
     display: none;
   }
