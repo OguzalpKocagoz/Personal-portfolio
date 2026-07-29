@@ -312,7 +312,7 @@ const projectsData = [
     image: process.env.PUBLIC_URL + '/covers/banka.png',
     github: 'https://github.com/OguzalpKocagoz/bank-application',
     live: null,
-    download: process.env.PUBLIC_URL + '/downloads/banka.exe'
+    download: 'https://github.com/OguzalpKocagoz/bank-application/releases/download/v1.0.0/Banka.Sistemi.exe'
   }
 ];
 
