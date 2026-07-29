@@ -169,6 +169,56 @@ const TechBadge = styled.span`
   background: rgba(217, 119, 6, 0.12);
 `;
 
+const CarouselButton = styled.button`
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  ${({ $side }) => ($side === 'left' ? 'left: 10px;' : 'right: 10px;')}
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  color: #0f172a;
+  font-size: 1.3rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 3;
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.25);
+  transition: background 0.2s ease, transform 0.2s ease;
+
+  &:hover {
+    background: #ffffff;
+    transform: translateY(-50%) scale(1.1);
+  }
+`;
+
+const Dots = styled.div`
+  position: absolute;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  z-index: 3;
+`;
+
+const Dot = styled.button`
+  width: ${({ $active }) => ($active ? '20px' : '7px')};
+  height: 7px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  background: ${({ $active }) => ($active ? '#d97706' : 'rgba(255, 255, 255, 0.75)')};
+  box-shadow: 0 1px 3px rgba(15, 23, 42, 0.3);
+  transition: all 0.25s ease;
+`;
+
 const ProjectLinks = styled.div`
   display: flex;
   gap: 1.25rem;
@@ -218,6 +268,11 @@ const projectsData = [
     description: 'Node.js ve MongoDB ile geliştirilmiş, sektörden bağımsız randevu yönetim uygulaması. Randevu oluşturma, iptal ve yönetici paneli özellikleri; JWT kimlik doğrulama ve PWA desteği.',
     tech: ['Node.js', 'MongoDB', 'JavaScript', 'PWA'],
     image: process.env.PUBLIC_URL + '/covers/randevu.png',
+    gallery: [
+      process.env.PUBLIC_URL + '/covers/randevu-1.png',
+      process.env.PUBLIC_URL + '/covers/randevu-2.png',
+      process.env.PUBLIC_URL + '/covers/randevu.png'
+    ],
     github: 'https://github.com/OguzalpKocagoz/randevu-app',
     live: 'https://randevu-app-nine.vercel.app/index.html'
   },
@@ -244,6 +299,66 @@ const containerVariants = {
 const itemVariants = {
   hidden: { y: 20, opacity: 0 },
   visible: { y: 0, opacity: 1, transition: { duration: 0.4 } }
+};
+
+// Kapak alanı: birden fazla görsel varsa ok tuşlu kaydırmalı galeri, tek görsel varsa düz kapak
+const ProjectCover = ({ project }) => {
+  const images =
+    project.gallery && project.gallery.length > 0
+      ? project.gallery
+      : project.image
+      ? [project.image]
+      : [];
+  const [idx, setIdx] = useState(0);
+  const multi = images.length > 1;
+  const go = (delta) => setIdx((i) => (i + delta + images.length) % images.length);
+
+  return (
+    <CoverWrapper>
+      {images.length > 0 ? (
+        <CoverImage
+          key={idx}
+          src={images[idx]}
+          alt={`${project.title} görsel ${idx + 1}`}
+          loading="lazy"
+        />
+      ) : (
+        <CoverPlaceholder>{CATEGORY_ICON[project.category] || '💻'}</CoverPlaceholder>
+      )}
+      {multi && (
+        <>
+          <CarouselButton
+            $side="left"
+            onClick={() => go(-1)}
+            aria-label="Önceki görsel"
+            type="button"
+          >
+            ‹
+          </CarouselButton>
+          <CarouselButton
+            $side="right"
+            onClick={() => go(1)}
+            aria-label="Sonraki görsel"
+            type="button"
+          >
+            ›
+          </CarouselButton>
+          <Dots>
+            {images.map((_, i) => (
+              <Dot
+                key={i}
+                $active={i === idx}
+                onClick={() => setIdx(i)}
+                aria-label={`Görsel ${i + 1}`}
+                type="button"
+              />
+            ))}
+          </Dots>
+        </>
+      )}
+      <CategoryBadge>{project.category}</CategoryBadge>
+    </CoverWrapper>
+  );
 };
 
 const Projects = () => {
@@ -308,16 +423,7 @@ const Projects = () => {
                 animate="visible"
                 exit={{ opacity: 0, scale: 0.9 }}
               >
-                <CoverWrapper>
-                  {project.image ? (
-                    <CoverImage src={project.image} alt={project.title} loading="lazy" />
-                  ) : (
-                    <CoverPlaceholder>
-                      {CATEGORY_ICON[project.category] || '💻'}
-                    </CoverPlaceholder>
-                  )}
-                  <CategoryBadge>{project.category}</CategoryBadge>
-                </CoverWrapper>
+                <ProjectCover project={project} />
                 <CardBody>
                   <ProjectTitle>{project.title}</ProjectTitle>
                   <ProjectDescription>{project.description}</ProjectDescription>
